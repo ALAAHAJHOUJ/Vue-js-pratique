@@ -17,52 +17,68 @@
   }*/
 
 
- import { ref } from 'vue'
+ import { onMounted,onUpdated, ref } from 'vue'
  import tester from './Tester.vue'
- let Aux=[]
 
- function chercher(valeur,nom){
-    for(let i=0;i<Aux.length;i++){
-       if(nom==Aux[i].nom){
-           return Aux[i].nb++
+
+
+function tester77(){
+   class Exemple{
+       constructor(id,name){
+          this.id=id;
+          this.name=name;
        }
-    }
+   }
 
-    Aux.push({nom:nom,nb:valeur})
- }
+   const Aux=[]
+   for(let i=0;i<10;i++){
+      Aux.push(new Exemple(i+1,`Exemple${i+1}`))
+   }
 
+   console.log(Aux)
+}
 
- function Afficher(valeur,nom){
-     chercher(valeur,nom)
-     console.log(Aux)
- }
+onUpdated(()=>{
+    tester77()
+})
 
-
-
-
- 
+const ref1=ref(0)
+function Changer(){
+    ref1.value++
+}
 
 </script>
 
 
 
 <template>
-     <tester :value1="'boutayna'" :callback="Afficher"></tester>
+     <!--tester :value1="'boutayna'" :callback="Afficher"></tester>
      <tester :value1="'nouhaila'" :callback="Afficher"></tester>
-     <tester :value1="'soukaina'" :callback="Afficher"></tester>
+     <tester :value1="'soukaina'" :callback="Afficher"></tester-->
+
+     <div @click="Changer" class="class11">
+       click {{ref1}}
+     </div>
+
+     <tester v-if="ref1%2==0"></tester>
 </template>
 
 
 
 <style scoped>
   .class11{
-   border: 1px solid black;
-   width: 200px;
-   height: 200px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   cursor: pointer;
-   margin-bottom: 20px;
+     text-align: center;
+  }
+
+
+  #mee1{
+      background:gray;
+      width:400px;
+      height: 90px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      align-items: center;
+      border-radius: 10px;
   }
 </style>
