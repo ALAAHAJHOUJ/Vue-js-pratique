@@ -17,50 +17,17 @@
   }*/
 
 
- import { onMounted,onUpdated, ref } from 'vue'
- import tester from './Tester.vue'
+   import tester3 from './Tester3.vue'
 
-
-
-function tester77(){
-   class Exemple{
-       constructor(id,name){
-          this.id=id;
-          this.name=name;
-       }
-   }
-
-   const Aux=[]
-   for(let i=0;i<10;i++){
-      Aux.push(new Exemple(i+1,`Exemple${i+1}`))
-   }
-
-   console.log(Aux)
-}
-
-onUpdated(()=>{
-    tester77()
-})
-
-const ref1=ref(0)
-function Changer(){
-    ref1.value++
-}
-
+   const Aux=[1,2,3,4]
 </script>
 
 
 
 <template>
-     <!--tester :value1="'boutayna'" :callback="Afficher"></tester>
-     <tester :value1="'nouhaila'" :callback="Afficher"></tester>
-     <tester :value1="'soukaina'" :callback="Afficher"></tester-->
+ 
+ <tester3 v-for="(Item,Index) in Aux" :key="Index" :cle1="Index" :longeur="Aux.length"></tester3>
 
-     <div @click="Changer" class="class11">
-       click {{ref1}}
-     </div>
-
-     <tester v-if="ref1%2==0"></tester>
 </template>
 
 
