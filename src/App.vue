@@ -17,17 +17,23 @@
   }*/
 
 
+   import { ref } from 'vue'
    import tester3 from './Tester3.vue'
+   import exemple from './Exemple1.vue'
+   import App1 from './Folder1/App1.vue'
+   import clavier from './Folder1/Clavier.vue'
 
    const Aux=[1,2,3,4]
+   const ref1=ref(true)
+
+   const changer=()=>{
+       ref1.value=!ref1.value
+   }
+
 </script>
 
-
-
 <template>
- 
- <tester3 v-for="(Item,Index) in Aux" :key="Index" :cle1="Index" :longeur="Aux.length"></tester3>
-
+  <clavier></clavier>
 </template>
 
 

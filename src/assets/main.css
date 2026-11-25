@@ -1,4 +1,4 @@
-
+@import "tailwindcss";
 
 body{
   margin: 0px;
@@ -9,4 +9,14 @@ body{
   justify-content: center;
   align-items: center;
   gap: 40px;
+}
+
+#app{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  width: 380px;
+  height:380px
 }
